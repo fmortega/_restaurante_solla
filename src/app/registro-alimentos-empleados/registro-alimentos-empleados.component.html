@@ -1,0 +1,59 @@
+<div class="container">
+<h3>Registro de control de alimentos</h3>
+<div class="card">
+  <div class="card-header">
+    Restaurante solla
+  </div>
+  <div class="card-body">
+    <h5 class="card-title d-inline-block mr-2">Menu</h5>
+    <p class="card-text">{{ fechaActual | date:'dd/MM/yyyy'}} {{horaActual }}</p>
+
+
+<form #empleadoForm="ngForm">
+  <div class="mb-3 form-group"  >
+    <label for="exampleFormControlInput1" class="form-label">Cedula</label>
+    <input type="text" class="form-control" id="cedula"  [(ngModel)]="empleadoAlimentos.id_empleado"
+    name="cedula" required="" minlength="3" maxlength="10" #cedula="ngModel" placeholder="digite cedula">
+    <div class="alert alert-danger" *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)">
+      <div *ngIf="cedula.errors?.['required']">
+        Digite su cedula por favor
+      </div>
+</div>
+
+<div class="mb-3" for="tipoalimento" class="form-group">
+<label>Seleccione alimento</label>
+
+<select id="opcion" class="form-select" aria-label="Default select example" [(ngModel)]="empleadoAlimentos.tipo_alimento" name="opcion" required="" #opcion="ngModel">
+<option value="Desayuno">Desayuno</option>
+<option value="Almuerzo">Almuerzo</option>
+<option value="Cena">Cena</option>
+<div class="alert alert-danger" *ngIf="opcion.invalid && (opcion.dirty || opcion.touched)">
+  <div *ngIf="opcion.errors?.['required']">
+    Seleccione una opcion por favor
+  </div>
+</div>
+</select>
+
+
+  <button class="btn btn-primary mt-3" [disabled]="!empleadoForm.form.valid" (click)="guardarEmpleadoAlimentos()" (keydown.enter)="guardarEmpleadoAlimentos()">Registrar</button>
+
+  <div class="alert alert-success mt-3" role="alert" *ngIf="existeEmpleado">
+    {{mensajeEmpleado}}
+  </div>
+
+    <div class="alert alert-danger mt-3" role="alert" *ngIf="!
+
+    existeEmpleado">
+     {{mensajeEmpleado}}
+
+    </div>
+
+
+
+
+  </div>
+
+
+</div>
+</form>
+</div>

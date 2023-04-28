@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-12 col-md-12 col-lg-12">
+      <div class="card mt-5">
+        <div class="card-header">
+          Actualizacion de empleados
+        </div>
+        <div class="card-body">
+
+          <div class="card-title">
+            <h3 class="text-center">Edición de empleado</h3>
+          </div>
+          <form #empleadoForm="ngForm">
+            <div class="form-group">
+              <label>Nombre : </label>
+              <input type="text" class="form-control" id="nombre" [(ngModel)]="empleado.nombre" name="nombre"
+                required="" minlength="4" maxlength="10" placeholder="Digite su nombre " #nombre="ngModel">
+              <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors?.['required']">
+                  Digite su nombre por favor
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Apellido : </label>
+              <input type="text" class="form-control" id="apellido" [(ngModel)]="empleado.apellido" name="apellido"
+                required="0" minlength="4" maxlength="10" placeholder="Digite su apellido " #apellido="ngModel">
+              <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf="apellido.errors?.['required']">
+                  Digite su apellido por favor
+                </div>
+
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Cargo : </label>
+              <input type="text" class="form-control" id="cargo" [(ngModel)]="empleado.cargo" name="cargo"
+              required="" minlength="4" maxlength="10" placeholder="Digite su cargo " #cargo="ngModel"
+                placeholder="Digite su cargo ">
+              <div class="alert alert-danger" *ngIf="cargo.invalid && (cargo.dirty || cargo.touched)">
+                <div *ngIf="cargo.errors?.['required']">
+                  Digite su cargo por favor
+                </div>
+
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Salario : </label>
+              <input type="text" class="form-control" id="salario" [(ngModel)]="empleado.salario" name="salario"
+              required="" minlength="4" maxlength="10" placeholder="Digite su salario " #salario="ngModel"
+                placeholder="Digite su salario ">
+              <div class="alert alert-danger" *ngIf="salario.invalid && (salario.dirty || salario.touched)">
+                <div *ngIf="salario.errors?.['required']">
+                  Digite su salario por favor
+                </div>
+
+
+              </div>
+            </div>
+            <button class="btn btn-success mt-3"
+              (click)="onSubmit()">Guardar</button>
+            <button class="btn btn-danger mt-3" (click)="irAlaListaDeEmpleados2()"
+              style="margin-left : 10px;">Cancelar</button>
+          </form>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>

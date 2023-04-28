@@ -1,0 +1,72 @@
+<div class="container">
+
+
+  <div class="card mt-3">
+    <div class="card-header">
+     Datos Basicos
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Ingreso datos empleados</h5>
+
+
+      <form #empleadoForm="ngForm">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Cedula</label>
+          <input type="email" class="form-control" id="cedula" [(ngModel)]="empleado.documento_identidad" name="cedula"
+          required="" minlength="5" maxlength="20" placeholder="Digite su nombre " #cedula="ngModel" >
+          <div class="alert alert-danger" *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)">
+            <div *ngIf="cedula.errors?.['required']">
+              Digite su cedula por favor
+            </div>
+        </div>
+        </div>
+        <div class="mb-3 form-group">
+          <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" [(ngModel)]="empleado.nombre" name="nombre"
+          required="" minlength="5" maxlength="20" placeholder="Digite su nombre " #nombre="ngModel">
+          <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <div *ngIf="nombre.errors?.['required']">
+              Digite su nombre por favor
+            </div>
+        </div>
+        <div class="mb-3 form-group">
+          <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" [(ngModel)]="empleado.apellido"  name="apellido"
+          required="" minlength="5" maxlength="20" placeholder="Digite su apellido " #apellido="ngModel">
+          <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+            <div *ngIf="apellido.errors?.['required']">
+              Digite su nombre por favor
+            </div>
+        </div>
+        </div>
+        <div class="mb-3 form-group">
+          <label for="exampleFormControlInput1" class="form-label">Cargo</label>
+          <input type="text" class="form-control" id="cargo" [(ngModel)]="empleado.cargo"name="cargo"
+          required="" minlength="5" maxlength="20" placeholder="Digite su cargo " #cargo="ngModel" >
+
+          <div class="alert alert-danger" *ngIf="cargo.invalid && (cargo.dirty || cargo.touched)">
+            <div *ngIf="cargo.errors?.['required']">
+              Digite su cargo por favor
+            </div>
+        </div>
+        </div>
+        <div class="mb-3 form-group">
+          <label for="exampleFormControlInput1" class="form-label">Salario</label>
+          <input type="number" class="form-control" id="salario" [(ngModel)]="empleado.salario" name="salario"
+          required="" minlength="5" maxlength="20" placeholder="Digite su salario " #salario="ngModel">
+          <div class="alert alert-danger" *ngIf="salario.invalid && (salario.dirty || salario.touched)">
+            <div *ngIf="salario.errors?.['required']">
+              Digite su salario por favor
+            </div>
+        </div>
+        </div>
+        <div class="mb-3 form-group">
+        <button class="btn btn-primary" [disabled]="!empleadoForm.form.valid" (click)="guardarEmpleado()">Registrar</button>
+        <button class="btn btn-dark mx-3" (click)="regresarListaEmpleados()">Cancelar</button>
+
+      </div>
+    </div>
+
+
+
+

@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <h4 class="text-center mt-3">Empleados</h4>
+
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center">Documento Indentidad</th>
+        <th scope="col" class="text-center">Nombre</th>
+        <th scope="col" class="text-center">Apellido</th>
+        <th scope="col" class="text-center">Cargo</th>
+        <th scope="col" class="text-center">Salario</th>
+        <th scope="col" class="text-center">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let datos of empleados;let i=index" class="justify-content-center">
+        <td class="text-center">{{datos.documento_identidad}}</td>
+        <th class="text-center">{{datos.nombre}}</th>
+        <td class="text-center">{{datos.apellido}}</td>
+        <td class="text-center">{{datos.cargo}}</td>
+        <td class="text-center">{{datos.salario}}</td>
+        <td class="text-center">
+          <button class="btn btn-info" (click)="actualizarEmpleado(datos.id)"><i class='fas fa-edit'
+              ></i>Editar</button>
+          <button (click)="eliminarEmpleado(datos.id)" class="btn btn-danger "
+            style="margin-left : 10px;"><i class="bi bi-trash-fill"
+              style="margin-right : 10px; font-size:15px"></i>Eliminar</button>
+
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
